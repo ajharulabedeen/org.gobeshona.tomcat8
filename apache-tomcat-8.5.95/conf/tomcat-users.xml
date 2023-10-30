@@ -35,7 +35,7 @@
   application, do not forget to remove the <!.. ..> that surrounds them. You
   will also need to set the passwords to something appropriate.
 -->
-<role rolename="manager-gui"/>
+<role rolename="manager-gui"/>	
   <user username="admin" password="admin" roles="manager-gui"/>
   <user username="robot" password="admin" roles="manager-script"/>
 
@@ -49,7 +49,7 @@
 
   <role rolename="tomcat"/>
   <role rolename="role1"/>
-  <user username="tomcat" password="admin" roles="manager-gui"/>
+  <user username="tomcat" password="admin" roles="tomcat"/>
   <user username="both" password="admin" roles="tomcat,role1"/>
   <user username="role1" password="admin" roles="role1"/>
 

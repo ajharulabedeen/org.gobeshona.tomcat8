@@ -15,8 +15,6 @@
   limitations under the License.
 --%>
 &lt;%@ page import="java.util.Enumeration" %>
-&lt;%@ page import="java.security.Principal" %>
-&lt;%@ page import="org.apache.catalina.TomcatPrincipal" %>
 &lt;%
   if (request.getParameter("logoff") != null) {
     session.invalidate();
@@ -73,52 +71,6 @@ enter it here:
 &lt;input type="text" name="role" value="&lt;%= util.HTMLFilter.filter(role) %>">
 &lt;input type="submit" >
 &lt;/form>
-&lt;br>&lt;br>
-
-&lt;%
-  Principal p = request.getUserPrincipal();
-  if (!(p instanceof TomcatPrincipal)) {
-%>
-&lt;p>The principal does not support attributes.&lt;/p>
-&lt;%
-  } else {
-    TomcatPrincipal principal = (TomcatPrincipal) p;
-%>
-&lt;p>The principal contains the following attributes:&lt;/p>
-&lt;table>
-&lt;tr>&lt;th>Name&lt;/th>&lt;th>Value&lt;/th>&lt;th>Type&lt;/th>&lt;/tr>
-&lt;%
-    Enumeration&lt;String> names = principal.getAttributeNames();
-    while (names.hasMoreElements()) {
-      String name = names.nextElement();
-      Object value = principal.getAttribute(name);
-      String type = value != null ? value.getClass().getName() : "unknown";
-      if (value instanceof Object[]) {
-        Object[] values = (Object[]) value;
-        value = "";
-        for (int i = 0; i &lt; values.length; i++) {
-          value += values[i] + "&lt;br/>";
-        }
-        if (values.length > 0) {
-          type = values[0].getClass().getName() + "[]";
-        } else {
-          type = "unknown";
-        }
-      }
-      type = type.replaceFirst("^java\\.lang\\.", "");
-%>
-&lt;tr>
-  &lt;td>&lt;%= util.HTMLFilter.filter(name) %>&lt;/td>
-  &lt;td>&lt;%= util.HTMLFilter.filter(String.valueOf(value)) %>&lt;/td>
-  &lt;td>&lt;%= util.HTMLFilter.filter(type) %>&lt;/td>
-&lt;/tr>
-&lt;%
-    }
-%>
-&lt;/table>
-&lt;%
-  }
-%>
 &lt;br>&lt;br>
 
 To add some data to the authenticated session, enter it here:

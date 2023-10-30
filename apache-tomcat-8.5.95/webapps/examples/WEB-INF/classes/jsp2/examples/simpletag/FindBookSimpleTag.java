@@ -16,8 +16,8 @@
  */
 package jsp2.examples.simpletag;
 
-import jakarta.servlet.jsp.JspException;
-import jakarta.servlet.jsp.tagext.SimpleTagSupport;
+import javax.servlet.jsp.JspException;
+import javax.servlet.jsp.tagext.SimpleTagSupport;
 
 import jsp2.examples.BookBean;
 

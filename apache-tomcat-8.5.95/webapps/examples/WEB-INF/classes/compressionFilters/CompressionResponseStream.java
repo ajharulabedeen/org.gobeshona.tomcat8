@@ -21,8 +21,8 @@ import java.io.OutputStream;
 import java.util.Arrays;
 import java.util.zip.GZIPOutputStream;
 
-import jakarta.servlet.ServletOutputStream;
-import jakarta.servlet.WriteListener;
+import javax.servlet.ServletOutputStream;
+import javax.servlet.WriteListener;
 
 /**
  * Implementation of <b>ServletOutputStream</b> that works with

@@ -18,8 +18,8 @@ package jsp2.examples.simpletag;
 
 import java.io.IOException;
 
-import jakarta.servlet.jsp.JspException;
-import jakarta.servlet.jsp.tagext.SimpleTagSupport;
+import javax.servlet.jsp.JspException;
+import javax.servlet.jsp.tagext.SimpleTagSupport;
 
 /**
  * Displays a tile as a single cell in a table.
